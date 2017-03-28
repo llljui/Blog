@@ -1,0 +1,188 @@
+<!-- $Id: user_info.htm 16854 2009-12-07 06:20:09Z sxc_shop $ -->
+{include file="pageheader.htm"}
+{insert_scripts files="../js/transport.org.js,../js/region.js"}
+<div class="main-div">
+<!-- #代码增加2014-12-23 by bbs.hongyuvip.com  _star -->
+<form method="post" action="dept.php" name="theForm" onsubmit="return validate()" enctype="multipart/form-data">
+<!-- #代码增加2014-12-23 by bbs.hongyuvip.com  _end -->
+<table width="100%" >
+  <tr>
+    <td class="label">仓库名称:</td>
+    <td>{if $form_action eq "update"}{$dept.dept_name}<input type="hidden" name="dept_name" value="{$dept.dept_name}" />{else}<input type="text" name="dept_name" maxlength="60" value="{$dept.dept_name}" />{$lang.require_field}{/if}</td>
+  </tr>
+  <tr>
+    <td class="label">仓库介绍:</td>
+    <td>
+        <textarea name="dept_desc">{$dept.dept_remark}</textarea>
+    </td>
+  </tr>
+  <tr>
+  	<td class="label">管理员:</td>
+    <td>
+        <select name="manage_user_id">
+            <option value="">请选择</option>
+            {foreach from=$user_list item=item}
+            <option value="{$item.user_id}" {if $dept.user_id == $item.user_id}selected{/if}>{$item.user_name}-{if $item.mobile_phone}{$item.mobile_phone}{else}{$item.email}{/if}</option>
+            {/foreach}
+        </select>
+    </td>
+  </tr>
+  <!--<tr>
+    <td class="label">邮箱:</td>
+    <td><input type="text" id="email" name="email" maxlength="60" size="40" value="{$user.email}" />{$lang.require_field}</td>
+  </tr>
+  -->
+  <tr>
+    <td class="label">仓库电话:</td>
+    <td><input type="text" id="tel" name="tel" maxlength="60" size="40" value="{$dept.tel}" />{$lang.require_field}</td>
+  </tr>
+  {if $form_action eq "insert"}
+  <tr>
+    <td class="label">密码:</td>
+    <td><input type="password" name="password" maxlength="20" size="20" />{$lang.require_field}</td>
+  </tr>
+  <tr>
+    <td class="label">确认密码:</td>
+    <td><input type="password" name="confirm_password" maxlength="20" size="20" />{$lang.require_field}</td>
+  </tr>
+  {elseif  $form_action eq "update"}
+  <tr>
+    <td class="label">登录名:</td>
+    <td>{$dept.user_name}</td>
+  </tr>
+  <tr>
+    <td class="label">新密码:</td>
+    <td><input type="password" name="password" maxlength="20" size="20" /></td>
+  </tr>
+  <tr>
+    <td class="label">确认密码:</td>
+    <td><input type="password" name="confirm_password" maxlength="20" size="20" /></td>
+  </tr>
+  {/if}
+  <tr>
+  	<td class="label">仓库所在地:</td>
+    <td>
+    			<select name="country" id="selCountries" onchange="region.changed(this, 1, 'selProvinces')">
+                <option value="0">请选择</option>
+                {foreach from=$country_list item=country}
+                <option value="{$country.region_id}" {if $dept.country eq $country.region_id}selected{/if}>{$country.region_name}</option>
+                {/foreach}
+              </select>
+              <select name="province" id="selProvinces" onchange="region.changed(this, 2, 'selCities')">
+                <option value="0">请选择</option>
+                {foreach from=$province_list item=province}
+                <option value="{$province.region_id}" {if $dept.province eq $province.region_id}selected{/if}>{$province.region_name}</option>
+                {/foreach}
+              </select>
+              <select name="city" id="selCities" onchange="region.changed(this, 3, 'selDistricts')">
+                <option value="0">请选择</option>
+                {foreach from=$city_list item=city}
+                <option value="{$city.region_id}" {if $dept.city eq $city.region_id}selected{/if}>{$city.region_name}</option>
+                {/foreach}
+              </select>
+              <select name="district" id="selDistricts" {if !$district_list}style="display:none"{/if}>
+                <option value="0">请选择</option>
+                {foreach from=$district_list item=district}
+                <option value="{$district.region_id}" {if $dept.district eq $district.region_id}selected{/if}>{$district.region_name}</option>
+                {/foreach}
+              </select>
+    </td>
+  </tr>
+  <tr>
+  	<td class="label">详细地址:</td>
+    <td><input type="text" name="address" value="{$dept.address}" /></td>
+  </tr>
+  
+  <tr>
+    <td colspan="2" align="center">
+      <input type="submit" value="{$lang.button_submit}" class="button" />
+      <input type="reset" value="{$lang.button_reset}" class="button" />
+      <input type="hidden" name="act" value="{$form_action}" />
+      <input type="hidden" name="id" value="{$dept.dept_id}" />    </td>
+      <input type="hidden" name="last_user_id" value="{$dept.user_id}" />    </td>
+  </tr>
+</table>
+
+</form>
+</div>
+{insert_scripts files="../js/utils.js,validator.js"}
+{literal}
+<script language="JavaScript">
+<!--
+region.isAdmin = true;
+if (document.forms['theForm'].elements['act'].value == "insert")
+{
+  document.forms['theForm'].elements['username'].focus();
+}
+else
+{
+  document.forms['theForm'].elements['email'].focus();
+}
+
+onload = function()
+{
+    // 开始检查订单
+    startCheckOrder();
+}
+
+/**
+ * 检查表单输入的数据
+ */
+function validate()
+{
+    validator = new Validator("theForm");
+    
+    if($.trim($("#email").val()).length > 0)
+    {
+    	validator.isEmail("email", invalid_email, true);
+    }
+    else if($.trim($("#mobile_phone").val()).length > 0)
+    {
+    	validator.isMobile("mobile_phone", invalid_mobile_phone, true);
+    }
+    else
+    {
+    	//alert("邮箱和手机号码至少要填写一项！");
+    	//return false;
+    }
+	
+    if (document.forms['theForm'].elements['act'].value == "insert")
+    {
+        validator.required("username",  no_username);
+        validator.required("password", no_password);
+        validator.required("confirm_password", no_confirm_password);
+        validator.eqaul("password", "confirm_password", password_not_same);
+
+        var password_value = document.forms['theForm'].elements['password'].value;
+        if (password_value.length < 6)
+        {
+          validator.addErrorMsg(less_password);
+        }
+        if (/ /.test(password_value) == true)
+        {
+          validator.addErrorMsg(passwd_balnk);
+        }
+    }
+    else if (document.forms['theForm'].elements['act'].value == "update")
+    {
+        var newpass = document.forms['theForm'].elements['password'];
+        var confirm_password = document.forms['theForm'].elements['confirm_password'];
+        if(newpass.value.length > 0 || confirm_password.value.length)
+        {
+          if(newpass.value.length >= 6 || confirm_password.value.length >= 6)
+          {
+            validator.eqaul("password", "confirm_password", password_not_same);
+          }
+          else
+          {
+            validator.addErrorMsg(password_len_err);
+          }
+        }
+    }
+
+    return validator.passed();
+}
+//-->
+</script>
+{/literal}
+{include file="pagefooter.htm"}

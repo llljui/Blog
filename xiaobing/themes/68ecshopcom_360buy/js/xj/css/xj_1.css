@@ -1,0 +1,4 @@
+body{overflow-x: hidden;}
+#xj_pre{position: absolute;z-index: 100;cursor: pointer;opacity:0.3;left:320px;top:400px;}
+#xj_next{position: absolute;right:320px;top:400px;z-index: 100;cursor:pointer;opacity:0.3;}
+.xj_blank{width:10%;border: 1px solid black;}

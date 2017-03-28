@@ -1,0 +1,19 @@
+{
+  "name": "js",
+  "homepage": "https://github.com/llljui/bangbanglicai.com",
+  "authors": [
+    "lixijiang <872013164@qq.com>"
+  ],
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "xj",
+    "test",
+    "tests"
+  ]
+}

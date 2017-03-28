@@ -1,0 +1,69 @@
+
+-- 2017-03-27 19:21:50 --------------------------------------------------------------
+FILE: 
+LINE: 
+SELECT g.goods_id, g.goods_name, g.goods_name_style,g.goods_sn,  g.market_price, g.shop_price AS org_price, g.promote_price, IFNULL(mp.user_price, g.shop_price * '1') AS shop_price, (select AVG(r.comment_rank) from `xjd`.`ecs_comment` as r where r.id_value = g.goods_id AND r.comment_type = 0 AND r.parent_id = 0 AND r.status = 1) AS comment_rank, (select IFNULL(sum(og.goods_number), 0) from `xjd`.`ecs_order_goods` as og where og.goods_id = g.goods_id) AS sell_number, promote_start_date, promote_end_date, g.goods_brief, g.goods_thumb, goods_img, b.brand_name, b.brand_id, g.is_best, g.is_new, g.is_hot, g.is_promote FROM `xjd`.`ecs_goods` AS g LEFT JOIN `xjd`.`ecs_brand` AS b ON b.brand_id = g.brand_id LEFT JOIN `xjd`.`ecs_member_price` AS mp ON mp.goods_id = g.goods_id AND mp.user_rank = '0' WHERE g.is_on_sale = 1 AND g.is_alone_sale = 1 AND g.is_delete = 0  AND is_best = 1 AND (g.system_cat_id  IN ('1')  OR g.goods_id IN ('') ) ORDER BY g.sort_order, g.last_update DESC
+-- 2017-03-27 19:21:50 --------------------------------------------------------------
+FILE: 
+LINE: 
+SELECT g.goods_id, g.goods_name, g.goods_name_style,g.goods_sn,  g.market_price, g.shop_price AS org_price, g.promote_price, IFNULL(mp.user_price, g.shop_price * '1') AS shop_price, (select AVG(r.comment_rank) from `xjd`.`ecs_comment` as r where r.id_value = g.goods_id AND r.comment_type = 0 AND r.parent_id = 0 AND r.status = 1) AS comment_rank, (select IFNULL(sum(og.goods_number), 0) from `xjd`.`ecs_order_goods` as og where og.goods_id = g.goods_id) AS sell_number, promote_start_date, promote_end_date, g.goods_brief, g.goods_thumb, goods_img, b.brand_name, b.brand_id, g.is_best, g.is_new, g.is_hot, g.is_promote FROM `xjd`.`ecs_goods` AS g LEFT JOIN `xjd`.`ecs_brand` AS b ON b.brand_id = g.brand_id LEFT JOIN `xjd`.`ecs_member_price` AS mp ON mp.goods_id = g.goods_id AND mp.user_rank = '0' WHERE g.is_on_sale = 1 AND g.is_alone_sale = 1 AND g.is_delete = 0  AND is_best = 1 AND (g.system_cat_id  IN ('2')  OR g.goods_id IN ('') ) ORDER BY g.sort_order, g.last_update DESC
+-- 2017-03-27 19:21:50 --------------------------------------------------------------
+FILE: 
+LINE: 
+SELECT g.goods_id, g.goods_name, g.goods_name_style,g.goods_sn,  g.market_price, g.shop_price AS org_price, g.promote_price, IFNULL(mp.user_price, g.shop_price * '1') AS shop_price, (select AVG(r.comment_rank) from `xjd`.`ecs_comment` as r where r.id_value = g.goods_id AND r.comment_type = 0 AND r.parent_id = 0 AND r.status = 1) AS comment_rank, (select IFNULL(sum(og.goods_number), 0) from `xjd`.`ecs_order_goods` as og where og.goods_id = g.goods_id) AS sell_number, promote_start_date, promote_end_date, g.goods_brief, g.goods_thumb, goods_img, b.brand_name, b.brand_id, g.is_best, g.is_new, g.is_hot, g.is_promote FROM `xjd`.`ecs_goods` AS g LEFT JOIN `xjd`.`ecs_brand` AS b ON b.brand_id = g.brand_id LEFT JOIN `xjd`.`ecs_member_price` AS mp ON mp.goods_id = g.goods_id AND mp.user_rank = '0' WHERE g.is_on_sale = 1 AND g.is_alone_sale = 1 AND g.is_delete = 0  AND is_best = 1 AND (g.system_cat_id  IN ('3')  OR g.goods_id IN ('') ) ORDER BY g.sort_order, g.last_update DESC
+-- 2017-03-27 19:21:50 --------------------------------------------------------------
+FILE: 
+LINE: 
+SELECT g.goods_id, g.goods_name, g.goods_name_style,g.goods_sn,  g.market_price, g.shop_price AS org_price, g.promote_price, IFNULL(mp.user_price, g.shop_price * '1') AS shop_price, (select AVG(r.comment_rank) from `xjd`.`ecs_comment` as r where r.id_value = g.goods_id AND r.comment_type = 0 AND r.parent_id = 0 AND r.status = 1) AS comment_rank, (select IFNULL(sum(og.goods_number), 0) from `xjd`.`ecs_order_goods` as og where og.goods_id = g.goods_id) AS sell_number, promote_start_date, promote_end_date, g.goods_brief, g.goods_thumb, goods_img, b.brand_name, b.brand_id, g.is_best, g.is_new, g.is_hot, g.is_promote FROM `xjd`.`ecs_goods` AS g LEFT JOIN `xjd`.`ecs_brand` AS b ON b.brand_id = g.brand_id LEFT JOIN `xjd`.`ecs_member_price` AS mp ON mp.goods_id = g.goods_id AND mp.user_rank = '0' WHERE g.is_on_sale = 1 AND g.is_alone_sale = 1 AND g.is_delete = 0  AND is_best = 1 AND (g.system_cat_id  IN ('4')  OR g.goods_id IN ('') ) ORDER BY g.sort_order, g.last_update DESC
+-- 2017-03-27 19:21:50 --------------------------------------------------------------
+FILE: 
+LINE: 
+SELECT g.goods_id, g.goods_name, g.goods_name_style,g.goods_sn,  g.market_price, g.shop_price AS org_price, g.promote_price, IFNULL(mp.user_price, g.shop_price * '1') AS shop_price, (select AVG(r.comment_rank) from `xjd`.`ecs_comment` as r where r.id_value = g.goods_id AND r.comment_type = 0 AND r.parent_id = 0 AND r.status = 1) AS comment_rank, (select IFNULL(sum(og.goods_number), 0) from `xjd`.`ecs_order_goods` as og where og.goods_id = g.goods_id) AS sell_number, promote_start_date, promote_end_date, g.goods_brief, g.goods_thumb, goods_img, b.brand_name, b.brand_id, g.is_best, g.is_new, g.is_hot, g.is_promote FROM `xjd`.`ecs_goods` AS g LEFT JOIN `xjd`.`ecs_brand` AS b ON b.brand_id = g.brand_id LEFT JOIN `xjd`.`ecs_member_price` AS mp ON mp.goods_id = g.goods_id AND mp.user_rank = '0' WHERE g.is_on_sale = 1 AND g.is_alone_sale = 1 AND g.is_delete = 0  AND is_best = 1 AND (g.system_cat_id  IN ('5')  OR g.goods_id IN ('') ) ORDER BY g.sort_order, g.last_update DESC
+-- 2017-03-27 19:21:50 --------------------------------------------------------------
+FILE: 
+LINE: 
+SELECT g.goods_id, g.goods_name, g.goods_name_style,g.goods_sn,  g.market_price, g.shop_price AS org_price, g.promote_price, IFNULL(mp.user_price, g.shop_price * '1') AS shop_price, (select AVG(r.comment_rank) from `xjd`.`ecs_comment` as r where r.id_value = g.goods_id AND r.comment_type = 0 AND r.parent_id = 0 AND r.status = 1) AS comment_rank, (select IFNULL(sum(og.goods_number), 0) from `xjd`.`ecs_order_goods` as og where og.goods_id = g.goods_id) AS sell_number, promote_start_date, promote_end_date, g.goods_brief, g.goods_thumb, goods_img, b.brand_name, b.brand_id, g.is_best, g.is_new, g.is_hot, g.is_promote FROM `xjd`.`ecs_goods` AS g LEFT JOIN `xjd`.`ecs_brand` AS b ON b.brand_id = g.brand_id LEFT JOIN `xjd`.`ecs_member_price` AS mp ON mp.goods_id = g.goods_id AND mp.user_rank = '0' WHERE g.is_on_sale = 1 AND g.is_alone_sale = 1 AND g.is_delete = 0  AND is_best = 1 AND (g.system_cat_id  IN ('6')  OR g.goods_id IN ('') ) ORDER BY g.sort_order, g.last_update DESC
+-- 2017-03-27 19:21:50 --------------------------------------------------------------
+FILE: 
+LINE: 
+SELECT g.goods_id, g.goods_name, g.goods_name_style,g.goods_sn,  g.market_price, g.shop_price AS org_price, g.promote_price, IFNULL(mp.user_price, g.shop_price * '1') AS shop_price, (select AVG(r.comment_rank) from `xjd`.`ecs_comment` as r where r.id_value = g.goods_id AND r.comment_type = 0 AND r.parent_id = 0 AND r.status = 1) AS comment_rank, (select IFNULL(sum(og.goods_number), 0) from `xjd`.`ecs_order_goods` as og where og.goods_id = g.goods_id) AS sell_number, promote_start_date, promote_end_date, g.goods_brief, g.goods_thumb, goods_img, b.brand_name, b.brand_id, g.is_best, g.is_new, g.is_hot, g.is_promote FROM `xjd`.`ecs_goods` AS g LEFT JOIN `xjd`.`ecs_brand` AS b ON b.brand_id = g.brand_id LEFT JOIN `xjd`.`ecs_member_price` AS mp ON mp.goods_id = g.goods_id AND mp.user_rank = '0' WHERE g.is_on_sale = 1 AND g.is_alone_sale = 1 AND g.is_delete = 0  AND is_best = 1 AND (g.system_cat_id  IN ('7')  OR g.goods_id IN ('') ) ORDER BY g.sort_order, g.last_update DESC
+-- 2017-03-27 19:21:50 --------------------------------------------------------------
+FILE: 
+LINE: 
+SELECT g.goods_id, g.goods_name, g.goods_name_style,g.goods_sn,  g.market_price, g.shop_price AS org_price, g.promote_price, IFNULL(mp.user_price, g.shop_price * '1') AS shop_price, (select AVG(r.comment_rank) from `xjd`.`ecs_comment` as r where r.id_value = g.goods_id AND r.comment_type = 0 AND r.parent_id = 0 AND r.status = 1) AS comment_rank, (select IFNULL(sum(og.goods_number), 0) from `xjd`.`ecs_order_goods` as og where og.goods_id = g.goods_id) AS sell_number, promote_start_date, promote_end_date, g.goods_brief, g.goods_thumb, goods_img, b.brand_name, b.brand_id, g.is_best, g.is_new, g.is_hot, g.is_promote FROM `xjd`.`ecs_goods` AS g LEFT JOIN `xjd`.`ecs_brand` AS b ON b.brand_id = g.brand_id LEFT JOIN `xjd`.`ecs_member_price` AS mp ON mp.goods_id = g.goods_id AND mp.user_rank = '0' WHERE g.is_on_sale = 1 AND g.is_alone_sale = 1 AND g.is_delete = 0  AND is_best = 1 AND (g.system_cat_id  IN ('8')  OR g.goods_id IN ('') ) ORDER BY g.sort_order, g.last_update DESC
+-- 2017-03-27 19:21:50 --------------------------------------------------------------
+FILE: 
+LINE: 
+PUEZ
+-- 2017-03-27 19:29:47 --------------------------------------------------------------
+FILE: 
+LINE: 
+E2M9
+-- 2017-03-27 19:31:52 --------------------------------------------------------------
+FILE: 
+LINE: 
+2GKQ
+-- 2017-03-27 19:32:05 --------------------------------------------------------------
+FILE: 
+LINE: 
+BZGU
+-- 2017-03-27 19:32:11 --------------------------------------------------------------
+FILE: 
+LINE: 
+U8DE
+-- 2017-03-27 19:32:41 --------------------------------------------------------------
+FILE: 
+LINE: 
+KF35
+-- 2017-03-27 19:32:42 --------------------------------------------------------------
+FILE: 
+LINE: 
+YGWB
+-- 2017-03-27 19:32:42 --------------------------------------------------------------
+FILE: 
+LINE: 
+J9C8
+-- 2017-03-27 19:32:43 --------------------------------------------------------------
+FILE: 
+LINE: 
+CLPD

@@ -1,0 +1,8 @@
+/* .xj_preornext:hover{background-color:#444;opacity: 0.8;} */
+/* .list.hover .cat{width: 215px!important;height: 60px!important;}  */
+.proclamation,.order_type{display: none;}
+.right-sidebar{display: none;}
+.headright{position: absolute;left:1000px;top: -38px;z-index: 10;}
+.catright{right:10px!important;}
+.xj-center{left: -200px;}
+.xj_a{position: absolute;left: 0px;top: 0px;}

@@ -1,0 +1,2 @@
+.navright1{transform: rotateY(180deg);}
+.transformright{-moz-transform:none;-webkit-transform:none;-o-transform:none;-ms-transform:none;transform:none;}
